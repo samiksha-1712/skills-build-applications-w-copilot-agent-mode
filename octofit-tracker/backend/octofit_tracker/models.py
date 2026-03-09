@@ -10,7 +10,7 @@ class User(models.Model):
 
 class Team(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    members = models.ArrayReferenceField(to=User, on_delete=models.CASCADE)
+    members = models.ArrayReferenceField(to=User, on_delete=models.CASCADE, related_name='user_teams')
     def __str__(self):
         return self.name
 
